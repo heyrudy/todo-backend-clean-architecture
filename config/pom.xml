@@ -16,7 +16,7 @@
     <dependencies>
         <dependency>
             <groupId>com.heyrudy</groupId>
-            <artifactId>spring-controller</artifactId>
+            <artifactId>spring-router</artifactId>
             <version>0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

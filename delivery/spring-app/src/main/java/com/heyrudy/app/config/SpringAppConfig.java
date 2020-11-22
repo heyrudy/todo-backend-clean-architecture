@@ -1,7 +1,7 @@
 package com.heyrudy.app.config;
 
 import com.heyrudy.config.SpringConfig;
-import com.heyrudy.spring_controller.TodoController;
+import com.heyrudy.router.spring_router.TodoRouter;
 import com.heyrudy.core.interactors.CreateTodoUsecase;
 import com.heyrudy.core.interactors.DeleteTodoByIdUsecase;
 import com.heyrudy.core.interactors.GetTodoByIdUsecase;
@@ -41,8 +41,8 @@ public class SpringAppConfig {
     }
 
     @Bean
-    public TodoController userController() {
-        return new TodoController(createTodo(),
+    public TodoRouter userController() {
+        return new TodoRouter(createTodo(),
                 getTodos(),
                 getTodoById(),
                 updateTodo(),

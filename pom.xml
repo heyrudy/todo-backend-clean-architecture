@@ -32,10 +32,10 @@
     <!-- Module Settings -->
     <modules>
         <module>core</module>
-        <module>adapters/controller/spring-controller</module>
+        <module>adapters/router/spring-router</module>
         <module>adapters/storage/in-memory-storage</module>
-        <module>adapters/storage/spring-persistent-storage</module>
-        <module>adapters/storage/mybatis-persistent-storage</module>
+<!--        <module>adapters/storage/spring-persistent-storage</module>-->
+<!--        <module>adapters/storage/mybatis-persistent-storage</module>-->
         <module>config</module>
         <module>delivery/spring-app</module>
     </modules>

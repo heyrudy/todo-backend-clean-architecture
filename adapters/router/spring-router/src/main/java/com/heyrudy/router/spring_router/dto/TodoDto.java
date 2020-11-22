@@ -1,20 +1,12 @@
-package com.heyrudy.spring_controller.dto;
+package com.heyrudy.router.spring_router.dto;
 
 import com.heyrudy.core.entities.Todo;
 
 public final class TodoDto {
-    private Long id;
+
     private String title;
     private String task;
     private boolean completed;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
@@ -42,7 +34,6 @@ public final class TodoDto {
 
     public Todo toTodo() {
         return Todo.builder()
-                .id(this.id)
                 .title(this.title)
                 .task(this.task)
                 .completed(this.completed)
@@ -51,7 +42,6 @@ public final class TodoDto {
 
     public static TodoDto toTodoDto(final Todo todo) {
         TodoDto todoDtoWeb = new TodoDto();
-        todoDtoWeb.setId(todo.getId());
         todoDtoWeb.setTitle(todo.getTitle());
         todoDtoWeb.setTask(todo.getTask());
         todoDtoWeb.setCompleted(todo.isCompleted());

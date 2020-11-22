@@ -1,6 +1,6 @@
-package com.heyrudy.spring_controller;
+package com.heyrudy.router.spring_router;
 
-import com.heyrudy.spring_controller.dto.TodoDto;
+import com.heyrudy.router.spring_router.dto.TodoDto;
 import com.heyrudy.core.entities.Todo;
 import com.heyrudy.core.interactors.CreateTodoUsecase;
 import com.heyrudy.core.interactors.DeleteTodoByIdUsecase;
@@ -12,9 +12,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static com.heyrudy.spring_controller.dto.TodoDto.toTodoDto;
-
-public final class TodoController {
+public final class TodoRouter {
 
     private final CreateTodoUsecase createTodo;
     private final GetTodosUsecase getTodos;
@@ -22,11 +20,11 @@ public final class TodoController {
     private final UpdateTodoUsecase updateTodo;
     private final DeleteTodoByIdUsecase deleteTodoById;
 
-    public TodoController(CreateTodoUsecase createTodo,
-                          GetTodosUsecase getTodos,
-                          GetTodoByIdUsecase getTodoById,
-                          UpdateTodoUsecase updateTodo,
-                          DeleteTodoByIdUsecase deleteTodoById) {
+    public TodoRouter(CreateTodoUsecase createTodo,
+                      GetTodosUsecase getTodos,
+                      GetTodoByIdUsecase getTodoById,
+                      UpdateTodoUsecase updateTodo,
+                      DeleteTodoByIdUsecase deleteTodoById) {
         this.createTodo = createTodo;
         this.getTodos = getTodos;
         this.getTodoById = getTodoById;
@@ -36,7 +34,7 @@ public final class TodoController {
 
     public TodoDto createTodo(final TodoDto todoDto) {
         Todo todo = todoDto.toTodo();
-        return toTodoDto(createTodo.execute(todo));
+        return TodoDto.toTodoDto(createTodo.execute(todo));
     }
 
     public List<TodoDto> getTodos() {
@@ -51,7 +49,7 @@ public final class TodoController {
         if (todoOptional.isEmpty()) {
             return Optional.empty();
         }
-        return Optional.of(toTodoDto(todoOptional.get()));
+        return Optional.of(TodoDto.toTodoDto(todoOptional.get()));
     }
 
     public Optional<TodoDto> updateTodo(final long id, final TodoDto todoDto) {
@@ -60,7 +58,7 @@ public final class TodoController {
         if (todoOptional.isEmpty()) {
             return Optional.empty();
         }
-        return Optional.of(toTodoDto(todoOptional.get()));
+        return Optional.of(TodoDto.toTodoDto(todoOptional.get()));
     }
 
     public void deleteTodoById(final long id) {
