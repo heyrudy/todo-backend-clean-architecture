@@ -3,6 +3,7 @@ package com.heyrudy.app.controller;
 import com.heyrudy.app.exception.ApiRequestException;
 import com.heyrudy.router.spring_router.TodoRouter;
 import com.heyrudy.router.spring_router.dto.TodoDto;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,7 @@ public final class SpringTodoController {
 
     private final TodoRouter router;
 
-    public SpringTodoController(TodoRouter router) {
+    public SpringTodoController(@Qualifier(value = "mybatisServiceRouter") TodoRouter router) {
         this.router = router;
     }
 

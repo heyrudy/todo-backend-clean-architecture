@@ -66,7 +66,7 @@ public final class SpringPersistentTodoRepositoryImpl implements ITodoRepository
         return todoEntity.toTodo();
     }
 
-    public void deleteTodo(final long id) {
+    public void deleteTodoById(final long id) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         TodoEntity todoEntity = em.find(TodoEntity.class, id);

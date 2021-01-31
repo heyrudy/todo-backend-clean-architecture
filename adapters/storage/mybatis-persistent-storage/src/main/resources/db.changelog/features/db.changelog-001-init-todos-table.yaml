@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-book_details
+      author: kko
+      failOnError: true
+      comment: create table to store todo items
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: todos
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: todo_pkey
+                    autoincrement: true
+                  remarks: "The unique identifier of the todo item"
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  remarks: "The title of the todo item"
+                  name: title
+                  type: VARCHAR(250)
+              - column:
+                  constraints:
+                    nullable: false
+                  remarks: "The task of the todo item"
+                  name: task
+                  type: VARCHAR(250)
+              - column:
+                  remarks: "The completion of the todo item"
+                  name: completed
+                  type: BOOLEAN
+                  default: FALSE
+            tableName: todos

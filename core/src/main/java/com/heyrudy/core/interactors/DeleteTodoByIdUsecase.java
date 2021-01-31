@@ -11,6 +11,6 @@ public final class DeleteTodoByIdUsecase {
     }
 
     public void execute(Long id) {
-        repository.deleteTodo(id);
+        repository.deleteTodoById(id);
     }
 }

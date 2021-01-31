@@ -8,4 +8,6 @@ module com.heyrudy.spring_app {
     requires spring.context;
     requires spring.web;
     requires java.validation;
+    requires org.mybatis;
+    requires spring.beans;
 }

@@ -15,5 +15,5 @@ public interface ITodoRepository {
 
     Todo updateTodo(final Todo todo);
 
-    void deleteTodo(final long id);
+    void deleteTodoById(final long id);
 }

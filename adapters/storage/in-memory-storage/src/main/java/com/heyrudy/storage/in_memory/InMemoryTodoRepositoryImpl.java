@@ -36,7 +36,7 @@ public final class InMemoryTodoRepositoryImpl implements ITodoRepository {
     }
 
     @Override
-    public void deleteTodo(final long id) {
+    public void deleteTodoById(final long id) {
         inMemoryDb.remove(id);
     }
 }

@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @Repository
 @Mapper
-public interface MybatisPersistentTodoRepositoryImpl extends ITodoRepository {
+public interface TodoMapper extends ITodoRepository {
 
     @Select("SELECT ID, NAME, STATE, COUNTRY FROM TODOS WHERE ID = #{id}")
     @Result(column = "id", property = "todoId")
@@ -33,5 +33,5 @@ public interface MybatisPersistentTodoRepositoryImpl extends ITodoRepository {
     Todo updateTodo(final Todo todo);
 
     @Delete("DELETE FROM TODOS WHERE ID = #{id}")
-    void deleteTodo(@Param("id") final long id);
+    void deleteTodoById(@Param("id") final long id);
 }

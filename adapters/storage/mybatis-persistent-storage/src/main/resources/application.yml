@@ -3,7 +3,7 @@ spring:
     name: HIBERNATE STORAGE
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql//localhost:5432/todos
+    url: jdbc:postgresql//localhost:5432/tododb
     username: postgres
     password: mysecretpassword
   h2:

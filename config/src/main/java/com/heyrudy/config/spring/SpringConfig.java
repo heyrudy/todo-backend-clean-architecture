@@ -1,4 +1,4 @@
-package com.heyrudy.config;
+package com.heyrudy.config.spring;
 
 import com.heyrudy.core.interactors.CreateTodoUsecase;
 import com.heyrudy.core.interactors.DeleteTodoByIdUsecase;

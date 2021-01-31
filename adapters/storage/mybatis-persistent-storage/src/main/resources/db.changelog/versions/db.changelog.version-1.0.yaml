@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      relativeToChangelogFile: true
+      file: ../features/db.changelog-001-init-todos-table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: ../features/db.changelog-002-populate-todos-table.yaml
