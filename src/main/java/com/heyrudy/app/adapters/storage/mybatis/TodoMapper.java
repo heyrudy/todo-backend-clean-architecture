@@ -21,7 +21,7 @@ public interface TodoMapper extends ITodoRepository {
     @Insert("INSERT INTO CITY (TITLE, TASK, COMPLETED) VALUES(#{title}, #{task}, #{completed})")
     Todo saveTodo(final Todo todo);
 
-    @Update("UPDATE TODOS SET TILTE=#{title}, TASK = #{task}, COMPLETED = #{completed} WHERE WHERE ID = #{id}")
+    @Update("UPDATE TODOS SET TITLE=#{title}, TASK = #{task}, COMPLETED = #{completed} WHERE WHERE ID = #{id}")
     Todo updateTodo(final Todo todo);
 
     @Delete("DELETE FROM TODOS WHERE ID = #{id}")
