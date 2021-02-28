@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="kko"
+               id="create-table-todos"
+               failOnError="true">
+
+        <comment>create table to store todo information</comment>
+
+        <createTable remarks="A resume about todo information"
+                     schemaName="public"
+                     tableName="todos">
+            <column remarks="The unique identifier of the todos"
+                    name="id"
+                    type="BIGINT"
+                    autoIncrement="true">
+                <constraints nullable="false"
+                             primaryKey="true"
+                             primaryKeyName="todos_pkey"/>
+            </column>
+            <column remarks="The title of the todo item"
+                    name="title"
+                    type="varchar(250)"/>
+            <column remarks="The task of the todo item"
+                    name="task"
+                    type="varchar(250)"/>
+            <column remarks="The completion of the todo item"
+                    name="completed"
+                    type="boolean"
+                    defaultValue="false"
+                    defaultOnNull="false"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

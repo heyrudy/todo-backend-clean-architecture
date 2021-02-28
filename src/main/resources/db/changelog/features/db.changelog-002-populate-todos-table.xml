@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="kko"
+               id="populate-table-todos"
+               failOnError="true">
+
+        <comment>populate todo information</comment>
+
+        <insert dbms="postgresql"
+                schemaName="public"
+                tableName="todos">
+            <column name="title" value="go out"/>
+            <column name="task" value="I'm going out"/>
+            <column name="completed" value="true"/>
+        </insert>
+
+        <insert dbms="postgresql"
+                schemaName="public"
+                tableName="todos">
+            <column name="title" value="buy candies"/>
+            <column name="task" value="I will buy lollipop"/>
+            <column name="completed" value="true"/>
+        </insert>
+
+        <insert dbms="postgresql"
+                schemaName="public"
+                tableName="todos">
+            <column name="title" value="come back home"/>
+            <column name="task" value="I'm coming back soon"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>
