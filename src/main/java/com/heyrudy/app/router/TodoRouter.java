@@ -36,8 +36,7 @@ public final class TodoRouter {
         this.deleteTodoById = deleteTodoById;
     }
 
-    public TodoDto createTodo(final TodoDto todoDto) {
-        Todo todo = todoDto.toTodo();
+    public TodoDto createTodo(final Todo todo) {
         return toTodoDto(createTodo.execute(todo));
     }
 
@@ -56,8 +55,7 @@ public final class TodoRouter {
         return Optional.of(toTodoDto(todoOptional.get()));
     }
 
-    public Optional<TodoDto> updateTodo(final long id, final TodoDto todoDto) {
-        Todo todo = todoDto.toTodo();
+    public Optional<TodoDto> updateTodo(final long id, final Todo todo) {
         final Optional<Todo> todoOptional = updateTodo.execute(id, todo);
         if (todoOptional.isEmpty()) {
             return Optional.empty();

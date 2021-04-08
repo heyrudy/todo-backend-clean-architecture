@@ -19,7 +19,7 @@ public final class TodoController {
 
     @PostMapping(value = "/todos")
     public TodoDto createTodo(@Valid @RequestBody final TodoDto todoDto) {
-        return router.createTodo(todoDto);
+        return router.createTodo(todoDto.toTodo());
     }
 
     @GetMapping(value = "/todos")
@@ -37,7 +37,7 @@ public final class TodoController {
 
     @PutMapping(value = "/todos/{todoId}")
     public TodoDto updateTodo(@PathVariable("todoId") final long id, @Valid @RequestBody final TodoDto todoDto) {
-        return router.updateTodo(id, todoDto)
+        return router.updateTodo(id, todoDto.toTodo())
                 .orElseThrow(
                         () -> new ApiRequestException(String.format("todo with %d " + "could not be updated", id))
                 );
