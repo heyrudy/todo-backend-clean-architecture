@@ -48,19 +48,13 @@ public final class TodoRouter {
     }
 
     public Optional<TodoDto> getTodoById(final long id) {
-        final Optional<Todo> todoOptional = getTodoById.execute(id);
-        if (todoOptional.isEmpty()) {
-            return Optional.empty();
-        }
-        return Optional.of(toTodoDto(todoOptional.get()));
+        return getTodoById.execute(id)
+                .map(TodoDto::toTodoDto);
     }
 
     public Optional<TodoDto> updateTodo(final long id, final Todo todo) {
-        final Optional<Todo> todoOptional = updateTodo.execute(id, todo);
-        if (todoOptional.isEmpty()) {
-            return Optional.empty();
-        }
-        return Optional.of(toTodoDto(todoOptional.get()));
+        return updateTodo.execute(id, todo)
+                .map(TodoDto::toTodoDto);
     }
 
     public void deleteTodoById(final long id) {
