@@ -13,29 +13,23 @@ public final class InMemoryTodoRepositoryImpl implements ITodoRepository {
 
     private final Map<Long, Todo> inMemoryDb = new HashMap<>();
 
-    @Override
     public Optional<Todo> getTodoById(final long id) {
         return Optional.ofNullable(inMemoryDb.get(id));
     }
 
-    @Override
     public List<Todo> getTodos() {
         return new ArrayList<>(inMemoryDb.values());
     }
 
-    @Override
     public Todo saveTodo(Todo todo) {
-        inMemoryDb.put(todo.getId(), todo);
+        inMemoryDb.put(todo.id(), todo);
         return todo;
     }
 
-    @Override
     public Todo updateTodo(Todo todo) {
-        inMemoryDb.put(todo.getId(), todo);
-        return todo;
+        return this.saveTodo(todo);
     }
 
-    @Override
     public void deleteTodoById(final long id) {
         inMemoryDb.remove(id);
     }
