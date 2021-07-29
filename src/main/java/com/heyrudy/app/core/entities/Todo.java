@@ -6,19 +6,19 @@ public record Todo(Long id, String title, String task, boolean completed) {
         this(0L, "", "", false);
     }
 
-    public Todo setID(Long id) {
+    public Todo setID(final Long id) {
         return new Todo(id, title, task, completed);
     }
 
-    public Todo setTitle(String title) {
+    public Todo setTitle(final String title) {
         return new Todo(id, title, task, completed);
     }
 
-    public Todo setTask(String task) {
+    public Todo setTask(final String task) {
         return new Todo(id, title, task, completed);
     }
 
-    public Todo setCompleted(boolean completed) {
+    public Todo setCompleted(final boolean completed) {
         return new Todo(id, title, task, completed);
     }
 
