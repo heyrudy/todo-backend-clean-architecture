@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public final class ApiExceptionHandler {
 
     @ExceptionHandler(value = {ApiRequestException.class})
-    public ResponseEntity<Object> handleApiRequestException(ApiRequestException e) {
+    public ResponseEntity<Object> handleApiRequestException(final ApiRequestException e) {
         HttpStatus badRequest = HttpStatus.BAD_REQUEST;
         ApiExceptionDto apiException = new ApiExceptionDto(e.getMessage(), badRequest);
 
