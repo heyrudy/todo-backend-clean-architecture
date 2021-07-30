@@ -37,7 +37,7 @@ public final class TodoController {
     public TodoDto getTodoById(@PathVariable("todoId") final long id) {
         return router.getTodoById(id)
                 .orElseThrow(
-                        () -> new ApiRequestException(String.format("todo with %d is not " + "found", id))
+                        () -> new ApiRequestException(String.format("todo with id : %d is not " + "found", id))
                 );
     }
 
@@ -45,7 +45,7 @@ public final class TodoController {
     public TodoDto updateTodo(@PathVariable("todoId") final long id, @Valid @RequestBody final TodoDto todoDto) {
         return router.updateTodo(id, todoDto.toTodo())
                 .orElseThrow(
-                        () -> new ApiRequestException(String.format("todo with %d " + "could not be updated", id))
+                        () -> new ApiRequestException(String.format("todo with id : %d " + "could not be updated", id))
                 );
     }
 
