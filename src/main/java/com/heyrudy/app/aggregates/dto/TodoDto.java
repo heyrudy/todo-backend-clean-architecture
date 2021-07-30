@@ -1,4 +1,4 @@
-package com.heyrudy.app.router.dto;
+package com.heyrudy.app.aggregates.dto;
 
 import com.heyrudy.app.core.entities.Todo;
 
