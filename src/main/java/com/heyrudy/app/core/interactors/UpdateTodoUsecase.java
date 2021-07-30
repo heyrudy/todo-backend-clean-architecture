@@ -17,6 +17,6 @@ public final class UpdateTodoUsecase {
 
     public Optional<Todo> execute(final long id, final Todo todo) {
         return repository.getTodoById(id).isEmpty() ?
-                Optional.empty() : Optional.ofNullable(repository.updateTodo(todo));
+                Optional.empty() : Optional.ofNullable(repository.updateTodo(todo.withID(id)));
     }
 }

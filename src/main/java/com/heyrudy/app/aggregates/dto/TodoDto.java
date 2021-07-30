@@ -6,9 +6,9 @@ public final record TodoDto(String title, String task, boolean completed) {
 
     public Todo toTodo() {
         return Todo.builder()
-                .title(title)
-                .task(task)
-                .completed(completed)
+                .withTitle(title)
+                .withTask(task)
+                .withCompleted(completed)
                 .build();
     }
 

@@ -6,40 +6,24 @@ public record Todo(long id, String title, String task, boolean completed) {
         this(0L, "", "", false);
     }
 
-    public Todo setID(final long id) {
+    public Todo withID(final long id) {
         return new Todo(id, title, task, completed);
     }
 
-    public Todo setTitle(final String title) {
+    public Todo withTitle(final String title) {
         return new Todo(id, title, task, completed);
     }
 
-    public Todo setTask(final String task) {
+    public Todo withTask(final String task) {
         return new Todo(id, title, task, completed);
     }
 
-    public Todo setCompleted(final boolean completed) {
+    public Todo withCompleted(final boolean completed) {
         return new Todo(id, title, task, completed);
     }
 
     public static Todo builder() {
         return new Todo();
-    }
-
-    public Todo id(final long id) {
-        return this.setID(id);
-    }
-
-    public Todo title(final String title) {
-        return this.setTitle(title);
-    }
-
-    public Todo task(final String task) {
-        return this.setTask(task);
-    }
-
-    public Todo completed(final boolean completed) {
-        return this.setCompleted(completed);
     }
 
     public Todo build() {
