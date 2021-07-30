@@ -1,12 +1,12 @@
 package com.heyrudy.app.core.entities;
 
-public record Todo(Long id, String title, String task, boolean completed) {
+public record Todo(long id, String title, String task, boolean completed) {
 
     public Todo() {
         this(0L, "", "", false);
     }
 
-    public Todo setID(final Long id) {
+    public Todo setID(final long id) {
         return new Todo(id, title, task, completed);
     }
 

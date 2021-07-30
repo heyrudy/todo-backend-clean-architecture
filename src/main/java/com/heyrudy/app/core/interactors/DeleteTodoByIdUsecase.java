@@ -12,7 +12,7 @@ public final class DeleteTodoByIdUsecase {
         this.repository = repository;
     }
 
-    public void execute(Long id) {
+    public void execute(final long id) {
         repository.deleteTodoById(id);
     }
 }
