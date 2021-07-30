@@ -18,7 +18,7 @@ public interface TodoMapper extends ITodoRepository {
 
     @Select("SELECT ID, TITLE, TASK, COMPLETED FROM TODOS WHERE ID = #{id}")
     @Result(column = "id", property = "id")
-    Optional<Todo> getTodoById(@Param("id") final long id);
+    Optional<Todo> getTodoById(@Param("id") final Long id);
 
     @Select("SELECT * FROM TODOS")
     @Result(column = "id", property = "id")
@@ -31,5 +31,5 @@ public interface TodoMapper extends ITodoRepository {
     Todo updateTodo(final Todo todo);
 
     @Delete("DELETE FROM TODOS WHERE ID = #{id}")
-    void deleteTodoById(@Param("id") final long id);
+    void deleteTodoById(@Param("id") final Long id);
 }

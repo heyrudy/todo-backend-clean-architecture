@@ -27,7 +27,7 @@ public final class TodoQuery {
                 .collect(Collectors.toList());
     }
 
-    public Optional<TodoDto> getTodoById(final long id) {
+    public Optional<TodoDto> getTodoById(final Long id) {
         return getTodoById.execute(id)
                 .map(TodoDto::toTodoDto);
     }

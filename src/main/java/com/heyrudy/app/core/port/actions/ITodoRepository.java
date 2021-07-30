@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface ITodoRepository {
 
-    Optional<Todo> getTodoById(final long id);
+    Optional<Todo> getTodoById(final Long id);
 
     List<Todo> getTodos();
 
@@ -15,5 +15,5 @@ public interface ITodoRepository {
 
     Todo updateTodo(final Todo todo);
 
-    void deleteTodoById(final long id);
+    void deleteTodoById(final Long id);
 }

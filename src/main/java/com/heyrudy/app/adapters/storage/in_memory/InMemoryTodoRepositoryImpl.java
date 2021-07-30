@@ -13,7 +13,7 @@ public final class InMemoryTodoRepositoryImpl implements ITodoRepository {
 
     private final Map<Long, Todo> inMemoryDb = new HashMap<>();
 
-    public Optional<Todo> getTodoById(final long id) {
+    public Optional<Todo> getTodoById(final Long id) {
         return Optional.ofNullable(inMemoryDb.get(id));
     }
 
@@ -30,7 +30,7 @@ public final class InMemoryTodoRepositoryImpl implements ITodoRepository {
         return this.saveTodo(todo);
     }
 
-    public void deleteTodoById(final long id) {
+    public void deleteTodoById(final Long id) {
         inMemoryDb.remove(id);
     }
 }

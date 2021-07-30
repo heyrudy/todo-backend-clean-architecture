@@ -31,12 +31,12 @@ public final class TodoCommand {
     }
 
 
-    public Optional<TodoDto> updateTodo(final long id, final Todo todo) {
+    public Optional<TodoDto> updateTodo(final Long id, final Todo todo) {
         return updateTodo.execute(id, todo)
                 .map(TodoDto::toTodoDto);
     }
 
-    public void deleteTodoById(final long id) {
+    public void deleteTodoById(final Long id) {
         deleteTodoById.execute(id);
     }
 }

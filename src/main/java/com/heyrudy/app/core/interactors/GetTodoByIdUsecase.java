@@ -15,7 +15,7 @@ public final class GetTodoByIdUsecase {
         this.repository = repository;
     }
 
-    public Optional<Todo> execute(final long id) {
+    public Optional<Todo> execute(final Long id) {
         return repository.getTodoById(id);
     }
 }

@@ -37,7 +37,7 @@ public final class TodoController {
     }
 
     @GetMapping(value = "/todos/{todoId}")
-    public TodoDto getTodoById(@PathVariable("todoId") final long id) {
+    public TodoDto getTodoById(@PathVariable("todoId") final Long id) {
         return query.getTodoById(id)
                 .orElseThrow(
                         () -> new ApiRequestException(String.format("todo with id : %d is not " + "found", id))
@@ -45,7 +45,7 @@ public final class TodoController {
     }
 
     @PutMapping(value = "/todos/{todoId}")
-    public TodoDto updateTodo(@PathVariable("todoId") final long id, @Valid @RequestBody final TodoDto todoDto) {
+    public TodoDto updateTodo(@PathVariable("todoId") final Long id, @Valid @RequestBody final TodoDto todoDto) {
         return command.updateTodo(id, todoDto.toTodo())
                 .orElseThrow(
                         () -> new ApiRequestException(String.format("todo with id : %d " + "could not be updated", id))
@@ -53,7 +53,7 @@ public final class TodoController {
     }
 
     @DeleteMapping(value = "/todos/{todoId}")
-    public void deleteTodoById(@PathVariable("todoId") final long id) {
+    public void deleteTodoById(@PathVariable("todoId") final Long id) {
         command.deleteTodoById(id);
     }
 }
