@@ -11,9 +11,9 @@ public interface ITodoRepository {
 
     List<Todo> getTodos();
 
-    Todo saveTodo(final Todo todo);
+    void saveTodo(final Todo todo);
 
-    Todo updateTodo(final Todo todo);
+    void updateTodo(final Todo todo);
 
     void deleteTodoById(final Long id);
 }

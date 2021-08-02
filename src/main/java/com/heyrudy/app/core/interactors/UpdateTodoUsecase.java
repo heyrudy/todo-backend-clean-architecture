@@ -5,8 +5,6 @@ import com.heyrudy.app.core.port.actions.ITodoRepository;
 import com.heyrudy.app.exception.DbRequestException;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
-
 @Component
 public final class UpdateTodoUsecase {
 
@@ -16,11 +14,9 @@ public final class UpdateTodoUsecase {
         this.repository = repository;
     }
 
-    public Optional<Todo> execute(final Long id, final Todo todo) {
-        repository.getTodoById(id)
-                .orElseThrow(
-                        () -> new DbRequestException(String.format("todo with id : %d " + "don't exist in Database", id))
-                );
-        return Optional.ofNullable(repository.updateTodo(todo.withId(id)));
+    public void execute(final Long id, final Todo todo) {
+        if(repository.getTodoById(id).isEmpty())
+            throw new DbRequestException(String.format("todo with id : %d " + "don't exist in Database", id));
+        repository.updateTodo(todo.withId(id));
     }
 }

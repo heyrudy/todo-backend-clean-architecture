@@ -21,13 +21,12 @@ public final class InMemoryTodoRepositoryImpl implements ITodoRepository {
         return new ArrayList<>(inMemoryDb.values());
     }
 
-    public Todo saveTodo(final Todo todo) {
+    public void saveTodo(final Todo todo) {
         inMemoryDb.put(todo.getId(), todo);
-        return todo;
     }
 
-    public Todo updateTodo(final Todo todo) {
-        return this.saveTodo(todo);
+    public void updateTodo(final Todo todo) {
+        this.saveTodo(todo);
     }
 
     public void deleteTodoById(final Long id) {

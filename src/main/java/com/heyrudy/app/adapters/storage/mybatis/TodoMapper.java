@@ -24,11 +24,11 @@ public interface TodoMapper extends ITodoRepository {
     @Result(column = "id", property = "id")
     List<Todo> getTodos();
 
-    @Insert("INSERT INTO CITY (TITLE, TASK, COMPLETED) VALUES(#{title}, #{task}, #{completed})")
-    Todo saveTodo(final Todo todo);
+    @Insert("INSERT INTO TODOS (TITLE, TASK, COMPLETED) VALUES(#{title}, #{task}, #{completed})")
+    void saveTodo(final Todo todo);
 
-    @Update("UPDATE TODOS SET TITLE=#{title}, TASK = #{task}, COMPLETED = #{completed} WHERE WHERE ID = #{id}")
-    Todo updateTodo(final Todo todo);
+    @Update("UPDATE TODOS SET TITLE=#{title}, TASK = #{task}, COMPLETED = #{completed} WHERE ID = #{id}")
+    void updateTodo(final Todo todo);
 
     @Delete("DELETE FROM TODOS WHERE ID = #{id}")
     void deleteTodoById(@Param("id") final Long id);

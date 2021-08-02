@@ -13,7 +13,7 @@ public final class CreateTodoUsecase {
         this.repository = repository;
     }
 
-    public Todo execute(final Todo todo) {
-        return repository.saveTodo(todo);
+    public void execute(final Todo todo) {
+        repository.saveTodo(todo);
     }
 }
