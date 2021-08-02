@@ -19,6 +19,14 @@ public final class ApiExceptionHandler {
         return new ResponseEntity<>(apiException, badRequest);
     }
 
+    @ExceptionHandler(value = {DbRequestException.class})
+    public ResponseEntity<Object> handleDbRequestException(final DbRequestException e) {
+        HttpStatus badRequest = HttpStatus.BAD_REQUEST;
+        ApiExceptionDto apiException = new ApiExceptionDto(e.getMessage(), badRequest);
+
+        return new ResponseEntity<>(apiException, badRequest);
+    }
+
     @ExceptionHandler(value = {HttpMessageNotReadableException.class})
     public ResponseEntity<Object> handleHttpMessageNotReadableException(final HttpMessageNotReadableException e) {
         HttpStatus badRequest = HttpStatus.BAD_REQUEST;
