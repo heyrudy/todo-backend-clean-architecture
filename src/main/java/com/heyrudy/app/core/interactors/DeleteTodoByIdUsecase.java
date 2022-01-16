@@ -14,8 +14,8 @@ public final class DeleteTodoByIdUsecase {
     }
 
     public void execute(final Long id) {
-        if(repository.getTodoById(id).isEmpty())
-            throw new DbRequestException(String.format("todo with id : %d " + "don't exist in Database", id));
-        repository.deleteTodoById(id);
+        repository.getTodoById(id).ifPresentOrElse(todoFound -> repository.deleteTodoById(todoFound.getTodoID().id()), () -> {
+            throw new DbRequestException(String.format("todo entity to be deleted with id : %d " + "don't exist in Database", id));
+        });
     }
 }

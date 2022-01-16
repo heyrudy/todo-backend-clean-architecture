@@ -2,12 +2,10 @@ package com.heyrudy.app.aggregates;
 
 import com.heyrudy.app.core.interactors.GetTodoByIdUsecase;
 import com.heyrudy.app.core.interactors.GetTodosUsecase;
-import com.heyrudy.app.aggregates.dto.TodoDto;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Component
 public final class TodoQuery {
@@ -20,15 +18,11 @@ public final class TodoQuery {
         this.getTodoById = getTodoById;
     }
 
-    public List<TodoDto> getTodos() {
-        return getTodos.execute()
-                .stream()
-                .map(TodoDto::toTodoDto)
-                .collect(Collectors.toList());
+    public List<TodoInfos> getTodos() {
+        return getTodos.execute().stream().map(TodoInfos::toTodoInfos).toList();
     }
 
-    public Optional<TodoDto> getTodoById(final Long id) {
-        return getTodoById.execute(id)
-                .map(TodoDto::toTodoDto);
+    public Optional<TodoInfos> getTodoById(final Long id) {
+        return getTodoById.execute(id).map(TodoInfos::toTodoInfos);
     }
 }

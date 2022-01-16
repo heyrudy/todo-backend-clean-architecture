@@ -12,29 +12,26 @@ import java.util.Optional;
 public final class ApiExceptionHandler {
 
     @ExceptionHandler(value = {ApiRequestException.class})
-    public ResponseEntity<Object> handleApiRequestException(final ApiRequestException e) {
-        HttpStatus badRequest = HttpStatus.BAD_REQUEST;
-        ApiExceptionDto apiException = new ApiExceptionDto(e.getMessage(), badRequest);
+    public ResponseEntity<Object> handleApiRequestException(final ApiRequestException apiRequestException) {
+        ApiExceptionInfos apiExceptionInfos = new ApiExceptionInfos(apiRequestException.getMessage(), HttpStatus.BAD_REQUEST);
 
-        return new ResponseEntity<>(apiException, badRequest);
+        return new ResponseEntity<>(apiExceptionInfos, apiExceptionInfos.status());
     }
 
     @ExceptionHandler(value = {DbRequestException.class})
-    public ResponseEntity<Object> handleDbRequestException(final DbRequestException e) {
-        HttpStatus badRequest = HttpStatus.BAD_REQUEST;
-        ApiExceptionDto apiException = new ApiExceptionDto(e.getMessage(), badRequest);
+    public ResponseEntity<Object> handleDbRequestException(final DbRequestException dbRequestException) {
+        ApiExceptionInfos apiExceptionInfos = new ApiExceptionInfos(dbRequestException.getMessage(), HttpStatus.BAD_REQUEST);
 
-        return new ResponseEntity<>(apiException, badRequest);
+        return new ResponseEntity<>(apiExceptionInfos, apiExceptionInfos.status());
     }
 
     @ExceptionHandler(value = {HttpMessageNotReadableException.class})
-    public ResponseEntity<Object> handleHttpMessageNotReadableException(final HttpMessageNotReadableException e) {
-        HttpStatus badRequest = HttpStatus.BAD_REQUEST;
-        String message = Optional.ofNullable(e.getMessage())
+    public ResponseEntity<Object> handleHttpMessageNotReadableException(final HttpMessageNotReadableException httpMessageNotReadableException) {
+        String message = Optional.ofNullable(httpMessageNotReadableException.getMessage())
                 .map(s -> s.split(":")[0])
                 .orElse("");
-        ApiExceptionDto apiException = new ApiExceptionDto(message, badRequest);
+        ApiExceptionInfos apiExceptionInfos = new ApiExceptionInfos(message, HttpStatus.BAD_REQUEST);
 
-        return new ResponseEntity<>(apiException, badRequest);
+        return new ResponseEntity<>(apiExceptionInfos, apiExceptionInfos.status());
     }
 }

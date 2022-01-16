@@ -3,7 +3,7 @@ package com.heyrudy.app.controller;
 import com.heyrudy.app.exception.ApiRequestException;
 import com.heyrudy.app.aggregates.TodoCommand;
 import com.heyrudy.app.aggregates.TodoQuery;
-import com.heyrudy.app.aggregates.dto.TodoDto;
+import com.heyrudy.app.aggregates.TodoInfos;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,24 +27,24 @@ public final class TodoController {
     }
 
     @PostMapping(value = "/todos")
-    public void createTodo(@Valid @RequestBody final TodoDto todoDto) {
-        command.createTodo(todoDto.toTodo());
+    public void createTodo(@Valid @RequestBody final TodoInfos todoInfos) {
+        command.createTodo(todoInfos.toTodo());
     }
 
     @GetMapping(value = "/todos")
-    public List<TodoDto> getTodos() {
+    public List<TodoInfos> getTodos() {
         return query.getTodos();
     }
 
     @GetMapping(value = "/todos/{todoId}")
-    public TodoDto getTodoById(@PathVariable("todoId") final Long id) {
-        return query.getTodoById(id).orElseThrow(() -> new ApiRequestException(String.format("todo with id : %d is " +
-                "not " + "found", id)));
+    public TodoInfos getTodoById(@PathVariable("todoId") final Long id) {
+        return query.getTodoById(id).orElseThrow(() -> new ApiRequestException(String.format("todo entity with id : " +
+                "%d is " + "not " + "found", id)));
     }
 
     @PutMapping(value = "/todos/{todoId}")
-    public void updateTodo(@PathVariable("todoId") final Long id, @Valid @RequestBody final TodoDto todoDto) {
-        command.updateTodo(id, todoDto.toTodo());
+    public void updateTodo(@PathVariable("todoId") final Long id, @Valid @RequestBody final TodoInfos todoInfos) {
+        command.updateTodo(id, todoInfos.toTodo());
     }
 
     @DeleteMapping(value = "/todos/{todoId}")

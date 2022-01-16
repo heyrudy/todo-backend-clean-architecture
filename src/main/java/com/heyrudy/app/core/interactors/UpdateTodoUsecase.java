@@ -15,8 +15,8 @@ public final class UpdateTodoUsecase {
     }
 
     public void execute(final Long id, final Todo todo) {
-        if(repository.getTodoById(id).isEmpty())
-            throw new DbRequestException(String.format("todo with id : %d " + "don't exist in Database", id));
-        repository.updateTodo(todo.withId(id));
+        repository.getTodoById(id).ifPresentOrElse(todoFound -> repository.updateTodo(todo.withId(todoFound.getTodoID())), () -> {
+            throw new DbRequestException(String.format("todo entity to be updated with id : %d " + "don't exist in Database", id));
+        });
     }
 }

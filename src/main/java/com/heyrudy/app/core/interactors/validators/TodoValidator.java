@@ -5,7 +5,7 @@ import com.heyrudy.app.core.entities.Todo;
 public final class TodoValidator {
 
     public boolean validateTodoItem(final Todo todo) {
-        return  todo.getId() != null &&
+        return  todo.getTodoID() != null &&
                 todo.getTitle() != null &&
                 todo.getTask() != null &&
                 todo.isCompleted() != null;
