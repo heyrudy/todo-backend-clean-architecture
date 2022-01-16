@@ -28,17 +28,16 @@ public record TodoInfos(Title title, Task task, Completed completed) {
     }
 
     public Todo toTodo() {
-        return Todo.builder()
+        return Todo.initTodo()
                 .withTitle(title)
                 .withTask(task)
-                .withCompleted(completed)
-                .build();
+                .withCompleted(completed);
     }
 
     public static TodoInfos toTodoInfos(final Todo todo) {
         return TodoInfos.initTodoInfos()
-                .withTitle(todo.getTitle())
-                .withTask(todo.getTask())
-                .withCompleted(todo.isCompleted());
+                .withTitle(todo.title())
+                .withTask(todo.task())
+                .withCompleted(todo.completed());
     }
 }

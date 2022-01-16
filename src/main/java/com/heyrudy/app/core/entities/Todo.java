@@ -1,54 +1,29 @@
 package com.heyrudy.app.core.entities;
 
-public final class Todo {
+public record Todo(TodoID todoID, Title title, Task task, Completed completed) {
 
-    private TodoID id;
-    private Title title;
-    private Task task;
-    private Completed completed;
+    public Todo() {
+        this(new TodoID(0L), new Title(""), new Task(""), new Completed(false));
+    }
 
-    public static Todo builder() {
+    public static Todo initTodo() {
         return new Todo();
     }
 
-    public TodoID getTodoID() {
-        return id;
-    }
-
     public Todo withId(final TodoID id) {
-        this.id = id;
-        return this;
-    }
-
-    public Title getTitle() {
-        return title;
+        return new Todo(id, title, task, completed);
     }
 
     public Todo withTitle(final Title title) {
-        this.title = title;
-        return this;
-    }
-
-    public Task getTask() {
-        return task;
+        return new Todo(todoID, title, task, completed);
     }
 
     public Todo withTask(final Task task) {
-        this.task = task;
-        return this;
-    }
-
-    public Completed isCompleted() {
-        return completed;
+        return new Todo(todoID, title, task, completed);
     }
 
     public Todo withCompleted(final Completed completed) {
-        this.completed = completed;
-        return this;
-    }
-
-    public Todo build() {
-        return this;
+        return new Todo(todoID, title, task, completed);
     }
 
     public record TodoID(Long id) {
