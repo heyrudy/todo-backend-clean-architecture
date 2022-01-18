@@ -1,4 +1,4 @@
-package com.heyrudy.app.core.port.actions;
+package com.heyrudy.app.core.effect.actions;
 
 import com.heyrudy.app.core.entities.Todo;
 
