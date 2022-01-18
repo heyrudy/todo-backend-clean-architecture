@@ -1,4 +1,4 @@
-package com.heyrudy.app.adapters.storage.in_memory;
+package com.heyrudy.app.adapters.storage.mocks;
 
 import com.heyrudy.app.core.entities.Todo;
 import com.heyrudy.app.core.port.actions.ITodoRepository;
@@ -22,7 +22,7 @@ public final class InMemoryTodoRepositoryImpl implements ITodoRepository {
     }
 
     public void saveTodo(final Todo todo) {
-        inMemoryDb.put(todo.getTodoID().id(), todo);
+        inMemoryDb.put(todo.todoID().id(), todo);
     }
 
     public void updateTodo(final Todo todo) {
