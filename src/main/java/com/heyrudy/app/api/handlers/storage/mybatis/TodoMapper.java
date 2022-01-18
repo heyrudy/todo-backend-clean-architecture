@@ -1,4 +1,4 @@
-package com.heyrudy.app.handlers.storage.mybatis;
+package com.heyrudy.app.api.handlers.storage.mybatis;
 
 import com.heyrudy.app.core.entities.Todo;
 import com.heyrudy.app.core.effect.actions.ITodoRepository;

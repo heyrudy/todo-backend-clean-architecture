@@ -1,9 +1,9 @@
-package com.heyrudy.app.controller;
+package com.heyrudy.app.api.controller;
 
-import com.heyrudy.app.exception.ApiRequestException;
-import com.heyrudy.app.aggregates.TodoCommand;
-import com.heyrudy.app.aggregates.TodoQuery;
-import com.heyrudy.app.aggregates.TodoInfos;
+import com.heyrudy.app.api.exception.ApiRequestException;
+import com.heyrudy.app.api.aggregates.TodoCommand;
+import com.heyrudy.app.api.aggregates.TodoQuery;
+import com.heyrudy.app.api.aggregates.TodoInfos;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

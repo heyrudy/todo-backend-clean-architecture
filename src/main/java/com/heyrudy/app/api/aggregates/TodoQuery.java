@@ -1,4 +1,4 @@
-package com.heyrudy.app.aggregates;
+package com.heyrudy.app.api.aggregates;
 
 import com.heyrudy.app.core.interactors.GetTodoByIdUsecase;
 import com.heyrudy.app.core.interactors.GetTodosUsecase;
