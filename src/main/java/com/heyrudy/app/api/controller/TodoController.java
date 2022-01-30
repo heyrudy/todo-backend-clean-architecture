@@ -16,39 +16,31 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-public final class TodoController {
-
-    private final TodoQuery query;
-    private final TodoCommand command;
-
-    public TodoController(TodoQuery query, TodoCommand command) {
-        this.query = query;
-        this.command = command;
-    }
+public record TodoController(TodoQuery todoQuery, TodoCommand todoCommand) {
 
     @PostMapping(value = "/todos")
     public void createTodo(@Valid @RequestBody final TodoInfos todoInfos) {
-        command.createTodo(todoInfos.toTodo());
+        todoCommand.createTodo(todoInfos.toTodo());
     }
 
     @GetMapping(value = "/todos")
     public List<TodoInfos> getTodos() {
-        return query.getTodos();
+        return todoQuery.getTodos();
     }
 
     @GetMapping(value = "/todos/{todoId}")
     public TodoInfos getTodoById(@PathVariable("todoId") final Long id) {
-        return query.getTodoById(id).orElseThrow(() -> new ApiRequestException(String.format("todo entity with id : " +
+        return todoQuery.getTodoById(id).orElseThrow(() -> new ApiRequestException(String.format("todo entity with id : " +
                 "%d is " + "not " + "found", id)));
     }
 
     @PutMapping(value = "/todos/{todoId}")
     public void updateTodo(@PathVariable("todoId") final Long id, @Valid @RequestBody final TodoInfos todoInfos) {
-        command.updateTodo(id, todoInfos.toTodo());
+        todoCommand.updateTodo(id, todoInfos.toTodo());
     }
 
     @DeleteMapping(value = "/todos/{todoId}")
     public void deleteTodoById(@PathVariable("todoId") final Long id) {
-        command.deleteTodoById(id);
+        todoCommand.deleteTodoById(id);
     }
 }

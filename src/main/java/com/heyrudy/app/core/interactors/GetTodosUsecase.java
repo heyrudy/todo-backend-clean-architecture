@@ -7,13 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public final class GetTodosUsecase {
-
-    private final ITodoRepository repository;
-
-    public GetTodosUsecase(ITodoRepository repository) {
-        this.repository = repository;
-    }
+public record GetTodosUsecase(ITodoRepository repository) {
 
     public List<Todo> execute() {
         return repository.getTodos();

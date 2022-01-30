@@ -7,13 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
-public final class GetTodoByIdUsecase {
-
-    private final ITodoRepository repository;
-
-    public GetTodoByIdUsecase(ITodoRepository repository) {
-        this.repository = repository;
-    }
+public record GetTodoByIdUsecase(ITodoRepository repository) {
 
     public Optional<Todo> execute(final Long id) {
         return repository.getTodoById(id);

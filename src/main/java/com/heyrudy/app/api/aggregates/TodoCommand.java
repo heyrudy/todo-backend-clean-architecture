@@ -7,28 +7,18 @@ import com.heyrudy.app.core.interactors.UpdateTodoUsecase;
 import org.springframework.stereotype.Component;
 
 @Component
-public final class TodoCommand {
+public record TodoCommand(CreateTodoUsecase createTodoUsecase, UpdateTodoUsecase updateTodoUsecase, DeleteTodoByIdUsecase deleteTodoByIdUsecase) {
 
-    private final CreateTodoUsecase createTodo;
-    private final UpdateTodoUsecase updateTodo;
-    private final DeleteTodoByIdUsecase deleteTodoById;
-
-    public TodoCommand(CreateTodoUsecase createTodo, UpdateTodoUsecase updateTodo,
-                       DeleteTodoByIdUsecase deleteTodoById) {
-        this.createTodo = createTodo;
-        this.updateTodo = updateTodo;
-        this.deleteTodoById = deleteTodoById;
-    }
 
     public void createTodo(final Todo todo) {
-        createTodo.execute(todo);
+        createTodoUsecase.execute(todo);
     }
 
     public void updateTodo(final Long id, final Todo todo) {
-        updateTodo.execute(id, todo);
+        updateTodoUsecase.execute(id, todo);
     }
 
     public void deleteTodoById(final Long id) {
-        deleteTodoById.execute(id);
+        deleteTodoByIdUsecase.execute(id);
     }
 }

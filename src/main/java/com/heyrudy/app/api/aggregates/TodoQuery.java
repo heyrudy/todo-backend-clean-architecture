@@ -8,21 +8,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public final class TodoQuery {
-
-    private final GetTodosUsecase getTodos;
-    private final GetTodoByIdUsecase getTodoById;
-
-    public TodoQuery(GetTodosUsecase getTodos, GetTodoByIdUsecase getTodoById) {
-        this.getTodos = getTodos;
-        this.getTodoById = getTodoById;
-    }
+public record TodoQuery(GetTodosUsecase getTodosUsecase, GetTodoByIdUsecase getTodoByIdUsecase) {
 
     public List<TodoInfos> getTodos() {
-        return getTodos.execute().stream().map(TodoInfos::toTodoInfos).toList();
+        return getTodosUsecase.execute().stream().map(TodoInfos::toTodoInfos).toList();
     }
 
     public Optional<TodoInfos> getTodoById(final Long id) {
-        return getTodoById.execute(id).map(TodoInfos::toTodoInfos);
+        return getTodoByIdUsecase.execute(id).map(TodoInfos::toTodoInfos);
     }
 }

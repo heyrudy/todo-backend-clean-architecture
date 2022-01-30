@@ -5,13 +5,7 @@ import com.heyrudy.app.api.exception.DbRequestException;
 import org.springframework.stereotype.Component;
 
 @Component
-public final class DeleteTodoByIdUsecase {
-
-    private final ITodoRepository repository;
-
-    public DeleteTodoByIdUsecase(ITodoRepository repository) {
-        this.repository = repository;
-    }
+public record DeleteTodoByIdUsecase(ITodoRepository repository) {
 
     public void execute(final Long id) {
         repository.getTodoById(id).ifPresentOrElse(todoFound -> repository.deleteTodoById(todoFound.todoID().id()), () -> {
