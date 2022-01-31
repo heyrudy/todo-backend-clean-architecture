@@ -1,4 +1,4 @@
-package com.heyrudy.app.core.effect.actions;
+package com.heyrudy.app.core.abilities;
 
 import com.heyrudy.app.core.entities.Todo;
 

@@ -1,7 +1,7 @@
 package com.heyrudy.app.api.handlers.storage.mybatis;
 
 import com.heyrudy.app.core.entities.Todo;
-import com.heyrudy.app.core.effect.actions.ITodoRepository;
+import com.heyrudy.app.core.abilities.ITodoRepository;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;

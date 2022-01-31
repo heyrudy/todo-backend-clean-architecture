@@ -1,7 +1,7 @@
 package com.heyrudy.app.api.handlers.storage.mocks;
 
 import com.heyrudy.app.core.entities.Todo;
-import com.heyrudy.app.core.effect.actions.ITodoRepository;
+import com.heyrudy.app.core.abilities.ITodoRepository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
