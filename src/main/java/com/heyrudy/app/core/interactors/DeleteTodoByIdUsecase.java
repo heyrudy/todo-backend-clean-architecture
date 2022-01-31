@@ -1,6 +1,6 @@
 package com.heyrudy.app.core.interactors;
 
-import com.heyrudy.app.core.abilities.ITodoRepository;
+import com.heyrudy.app.core.abilities.storage.ITodoRepository;
 import com.heyrudy.app.api.exception.DbRequestException;
 import org.springframework.stereotype.Component;
 

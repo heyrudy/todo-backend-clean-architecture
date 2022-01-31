@@ -1,4 +1,4 @@
-package com.heyrudy.app.core.abilities;
+package com.heyrudy.app.core.abilities.storage;
 
 import com.heyrudy.app.core.entities.Todo;
 
