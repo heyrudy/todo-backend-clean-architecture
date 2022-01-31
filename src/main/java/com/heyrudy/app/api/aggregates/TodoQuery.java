@@ -1,5 +1,6 @@
 package com.heyrudy.app.api.aggregates;
 
+import com.heyrudy.app.core.entities.Todo.TodoID;
 import com.heyrudy.app.core.interactors.GetTodoByIdUsecase;
 import com.heyrudy.app.core.interactors.GetTodosUsecase;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ public record TodoQuery(GetTodosUsecase getTodosUsecase, GetTodoByIdUsecase getT
         return getTodosUsecase.execute().stream().map(TodoInfos::toTodoInfos).toList();
     }
 
-    public Optional<TodoInfos> getTodoById(final Long id) {
-        return getTodoByIdUsecase.execute(id).map(TodoInfos::toTodoInfos);
+    public Optional<TodoInfos> getTodoById(final TodoID todoID) {
+        return getTodoByIdUsecase.execute(todoID).map(TodoInfos::toTodoInfos);
     }
 }
