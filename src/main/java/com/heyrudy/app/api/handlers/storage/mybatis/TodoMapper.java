@@ -18,18 +18,18 @@ public interface TodoMapper extends ITodoRepository {
 
     @Select("SELECT ID, TITLE, TASK, COMPLETED FROM TODOS WHERE ID = #{id}")
     @Result(column = "id", property = "id")
-    Optional<Todo> getTodoById(@Param("id") final Long id);
+    Optional<Todo> getTodoById(@Param("id") Long id);
 
     @Select("SELECT * FROM TODOS")
-    @Result(column = "id", property = "id")
+    @Result(column = "id", property = "todoID")
     List<Todo> getTodos();
 
     @Insert("INSERT INTO TODOS (TITLE, TASK, COMPLETED) VALUES(#{title}, #{task}, #{completed})")
-    void saveTodo(final Todo todo);
+    void saveTodo(Todo todo);
 
     @Update("UPDATE TODOS SET TITLE=#{title}, TASK = #{task}, COMPLETED = #{completed} WHERE ID = #{id}")
-    void updateTodo(final Todo todo);
+    void updateTodo(Todo todo);
 
     @Delete("DELETE FROM TODOS WHERE ID = #{id}")
-    void deleteTodoById(@Param("id") final Long id);
+    void deleteTodoById(@Param("id") Long id);
 }

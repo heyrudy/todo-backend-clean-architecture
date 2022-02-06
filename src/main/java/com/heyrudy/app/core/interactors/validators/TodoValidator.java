@@ -5,9 +5,9 @@ import com.heyrudy.app.core.entities.Todo;
 public record TodoValidator() {
 
     public boolean validateTodoItem(final Todo todo) {
-        return  todo.todoID() != null &&
-                todo.title() != null &&
-                todo.task() != null &&
-                todo.completed() != null;
+        return  todo.getTodoID() != null &&
+                todo.getTitle() != null &&
+                todo.getTask() != null &&
+                todo.getCompleted() != null;
     }
 }

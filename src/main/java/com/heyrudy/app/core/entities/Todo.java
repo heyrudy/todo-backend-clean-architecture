@@ -1,40 +1,71 @@
 package com.heyrudy.app.core.entities;
 
-public record Todo(TodoID todoID, Title title, Task task, Completed completed) {
+public final class Todo {
+
+    private Long todoID;
+    private String title;
+    private String task;
+    private Boolean completed;
 
     public Todo() {
-        this(new TodoID(0L), new Title(""), new Task(""), new Completed(false));
+    }
+
+    public Todo(Long todoID, String title, String task, Boolean completed) {
+        this.todoID = todoID;
+        this.title = title;
+        this.task = task;
+        this.completed = completed;
     }
 
     public static Todo initTodo() {
         return new Todo();
     }
 
-    public Todo withId(final TodoID id) {
+    public Todo withId(Long id) {
         return new Todo(id, title, task, completed);
     }
 
-    public Todo withTitle(final Title title) {
+    public Todo withTitle(String title) {
         return new Todo(todoID, title, task, completed);
     }
 
-    public Todo withTask(final Task task) {
+    public Todo withTask(String task) {
         return new Todo(todoID, title, task, completed);
     }
 
-    public Todo withCompleted(final Completed completed) {
+    public Todo withCompleted(Boolean completed) {
         return new Todo(todoID, title, task, completed);
     }
 
-    public record TodoID(Long id) {
+    public Long getTodoID() {
+        return todoID;
     }
 
-    public record Title(String title) {
+    public void setTodoID(Long todoID) {
+        this.todoID = todoID;
     }
 
-    public record Task(String task) {
+    public String getTitle() {
+        return title;
     }
 
-    public record Completed(Boolean completed) {
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTask() {
+        return task;
+    }
+
+    public void setTask(String task) {
+        this.task = task;
+    }
+
+    public Boolean getCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(Boolean completed) {
+        this.completed = completed;
     }
 }

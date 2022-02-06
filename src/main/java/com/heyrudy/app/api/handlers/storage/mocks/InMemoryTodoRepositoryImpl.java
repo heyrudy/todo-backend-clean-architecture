@@ -22,7 +22,7 @@ public final class InMemoryTodoRepositoryImpl implements ITodoRepository {
     }
 
     public void saveTodo(final Todo todo) {
-        inMemoryDb.put(todo.todoID().id(), todo);
+        inMemoryDb.put(todo.getTodoID(), todo);
     }
 
     public void updateTodo(final Todo todo) {
