@@ -1,7 +1,7 @@
 package com.heyrudy.core.interactors;
 
 import com.heyrudy.core.entities.Todo;
-import com.heyrudy.core.port.actions.ITodoRepository;
+import com.heyrudy.core.abilities.storage.ITodoRepository;
 
 import java.util.Optional;
 

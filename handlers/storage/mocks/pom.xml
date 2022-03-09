@@ -9,26 +9,15 @@
         <artifactId>todoEntity-backend-clean-architecture</artifactId>
         <groupId>com.heyrudy</groupId>
         <version>0.1-SNAPSHOT</version>
+        <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>config</artifactId>
+    <artifactId>mocks</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.heyrudy</groupId>
-            <artifactId>aggregates</artifactId>
-            <version>0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.heyrudy</groupId>
-            <artifactId>spring-data</artifactId>
-            <version>0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.heyrudy</groupId>
-            <artifactId>mocks</artifactId>
+            <artifactId>core</artifactId>
             <version>0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

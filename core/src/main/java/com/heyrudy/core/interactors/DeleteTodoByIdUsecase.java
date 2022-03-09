@@ -1,6 +1,6 @@
 package com.heyrudy.core.interactors;
 
-import com.heyrudy.core.port.actions.ITodoRepository;
+import com.heyrudy.core.abilities.storage.ITodoRepository;
 
 public final class DeleteTodoByIdUsecase {
 
