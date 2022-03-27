@@ -1,11 +1,11 @@
 package com.heyrudy.app.core.abilities.storage;
 
-import com.heyrudy.app.core.entities.Todo;
+import com.heyrudy.app.core.states.Todo;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface ITodoRepository {
+public interface ITodoStore {
 
     Optional<Todo> getTodoById(final Long id);
 

@@ -1,5 +1,6 @@
 package com.heyrudy.app.api.exception;
 
+import com.heyrudy.app.core.abilities.storage.exception.DbRequestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;

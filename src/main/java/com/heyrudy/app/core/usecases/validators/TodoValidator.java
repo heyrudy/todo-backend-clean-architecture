@@ -1,6 +1,6 @@
-package com.heyrudy.app.core.interactors.validators;
+package com.heyrudy.app.core.usecases.validators;
 
-import com.heyrudy.app.core.entities.Todo;
+import com.heyrudy.app.core.states.Todo;
 
 public record TodoValidator() {
 

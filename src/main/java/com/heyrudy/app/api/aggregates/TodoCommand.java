@@ -1,9 +1,9 @@
 package com.heyrudy.app.api.aggregates;
 
-import com.heyrudy.app.core.entities.Todo;
-import com.heyrudy.app.core.interactors.CreateTodoUsecase;
-import com.heyrudy.app.core.interactors.DeleteTodoByIdUsecase;
-import com.heyrudy.app.core.interactors.UpdateTodoUsecase;
+import com.heyrudy.app.core.states.Todo;
+import com.heyrudy.app.core.usecases.CreateTodoUsecase;
+import com.heyrudy.app.core.usecases.DeleteTodoByIdUsecase;
+import com.heyrudy.app.core.usecases.UpdateTodoUsecase;
 
 import org.springframework.stereotype.Component;
 

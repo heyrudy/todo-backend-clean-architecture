@@ -1,4 +1,4 @@
-package com.heyrudy.app.api.exception;
+package com.heyrudy.app.core.abilities.storage.exception;
 
 public final class DbRequestException extends RuntimeException {
 

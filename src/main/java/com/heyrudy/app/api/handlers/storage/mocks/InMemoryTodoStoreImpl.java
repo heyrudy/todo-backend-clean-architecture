@@ -1,7 +1,7 @@
 package com.heyrudy.app.api.handlers.storage.mocks;
 
-import com.heyrudy.app.core.entities.Todo;
-import com.heyrudy.app.core.abilities.storage.ITodoRepository;
+import com.heyrudy.app.core.states.Todo;
+import com.heyrudy.app.core.abilities.storage.ITodoStore;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public final class InMemoryTodoRepositoryImpl implements ITodoRepository {
+public final class InMemoryTodoStoreImpl implements ITodoStore {
 
     private final Map<Long, Todo> inMemoryDb = new HashMap<>();
 

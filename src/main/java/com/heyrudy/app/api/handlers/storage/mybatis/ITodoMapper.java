@@ -3,8 +3,8 @@ package com.heyrudy.app.api.handlers.storage.mybatis;
 import java.util.List;
 import java.util.Optional;
 
-import com.heyrudy.app.core.abilities.storage.ITodoRepository;
-import com.heyrudy.app.core.entities.Todo;
+import com.heyrudy.app.core.abilities.storage.ITodoStore;
+import com.heyrudy.app.core.states.Todo;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -15,7 +15,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 @Mapper
-public interface ITodoMapper extends ITodoRepository {
+public interface ITodoMapper extends ITodoStore {
 
     @Select("SELECT ID, TITLE, TASK, COMPLETED FROM TODOS WHERE ID = #{id}")
     @Result(column = "id", property = "id")

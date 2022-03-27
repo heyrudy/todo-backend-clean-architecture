@@ -1,6 +1,6 @@
 package com.heyrudy.app.api.aggregates;
 
-import com.heyrudy.app.core.entities.Todo;
+import com.heyrudy.app.core.states.Todo;
 
 public final class TodoInfos {
 

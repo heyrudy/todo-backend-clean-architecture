@@ -1,7 +1,7 @@
 package com.heyrudy.app.api.aggregates;
 
-import com.heyrudy.app.core.interactors.GetTodoByIdUsecase;
-import com.heyrudy.app.core.interactors.GetTodosUsecase;
+import com.heyrudy.app.core.usecases.GetTodoByIdUsecase;
+import com.heyrudy.app.core.usecases.GetTodosUsecase;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

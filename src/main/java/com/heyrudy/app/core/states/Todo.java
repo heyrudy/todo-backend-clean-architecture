@@ -1,4 +1,4 @@
-package com.heyrudy.app.core.entities;
+package com.heyrudy.app.core.states;
 
 public final class Todo {
 
